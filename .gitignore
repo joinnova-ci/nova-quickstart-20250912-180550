@@ -1,0 +1,4 @@
+.nova/
+test-results.json
+__pycache__/
+*.py[cod]

@@ -1,0 +1,30 @@
+{
+  "language": "python",
+  "install": [
+    "python -m pip install -U pip",
+    "pip install -r requirements.txt"
+  ],
+  "test_command": "PYTHONPATH=. pytest -v --json-report --json-report-file test-results.json",
+  "llm": {
+    "model": "gpt-5-mini",
+    "reasoning_effort": "high"
+  },
+  "safety": {
+    "max_patch_lines": 200,
+    "max_patch_files": 5,
+    "max_iters": 3
+  },
+  "pr": {
+    "auto_create": true
+  },
+  "nova": {
+    "package": "nova-ci-rescue",
+    "index_url": "https://dl.cloudsmith.io/T99gON7ReiBu6hPP/nova/nova-ci-rescue/python/simple/",
+    "version": "",
+    "fix_args": "--ci-mode --patch-mode --max-iters 10 --timeout 900 --verbose",
+    "safety_env": {
+      "NOVA_SAFETY_MAX_FILES": "5",
+      "NOVA_SAFETY_MAX_LINES_PER_FILE": "3000"
+    }
+  }
+}
