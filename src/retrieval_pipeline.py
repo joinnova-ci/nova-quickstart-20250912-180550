@@ -23,7 +23,7 @@ import math
 def cosine_sim(a: np.ndarray, b: np.ndarray) -> float:
     """Cosine similarity with proper L2 normalization on both vectors."""
     a_norm = a / (np.linalg.norm(a) or 1.0)
-    b_norm = b / (np.linalg.norm(b) or 1.0)  # BUG_HOOK_NORM
+    b_norm = b  # BUG_HOOK_NORM
     return float(np.dot(a_norm, b_norm))
 
 def rank(documents: List[str], query_embedding: np.ndarray, doc_embeddings: List[np.ndarray], top_k: int = 5) -> List[int]:
